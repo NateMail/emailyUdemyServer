@@ -1,13 +1,16 @@
 // SurveyForm shows a form for a user to add input
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 class SurveyForm extends Component {
   render() {
     return (
       <div>
         SurveyForm
-        <h5>Oh wow survey form</h5>
+        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+          <Field type="text" name="surveyTitle" component="input" />
+          <button type="submit">Submit</button>
+        </form>
       </div>
     );
   }
