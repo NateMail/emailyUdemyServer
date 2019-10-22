@@ -1,11 +1,13 @@
+// SurveyNew show SurveyForm and SurveyReview
 import React, { Component } from 'react';
+import SurveyForm from './SurveyForm';
 
 class SurveyNew extends Component {
   render() {
     return (
       <div>
         SurveyNew!
-        <h3>wow</h3>
+        <SurveyForm />
       </div>
     );
   }
