@@ -7,6 +7,13 @@ class SurveyList extends Component {
     this.props.fetchSurveys();
   }
 
+  responded(survey) {
+    if (survey.lastResponded === undefined) {
+      return 'None';
+    } else {
+      return new Date(survey.lastResponded).toLocaleDateString();
+    }
+  }
   renderSurveys() {
     return this.props.surveys.reverse().map(survey => {
       return (
@@ -21,6 +28,10 @@ class SurveyList extends Component {
           <div className="card-action">
             <a>Yes: {survey.yes}</a>
             <a>No: {survey.no}</a>
+            <p className="right">
+              Last Responded:
+              {this.responded(survey)}
+            </p>
           </div>
         </div>
       );
